@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    tools {
-        maven 'Maven3'
-        jdk 'JDK11'
-    }
     environment {
         APP_SERVER = 'ubuntu@18.222.21.205'         
         KEY_PATH = '/var/lib/jenkins/.ssh/my-key.pem'

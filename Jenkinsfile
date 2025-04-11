@@ -18,7 +18,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                  scp -i $KEY_PATH target/*.war $APP_SERVER:/opt/tomcat/webapps/
+                scp -i $KEY_PATH target/*.jar $APP_SERVER:/home/ubuntu/spring-app/
+                ssh -i $KEY_PATH $APP_SERVER 'nohup java -jar /home/ubuntu/spring-app/*.jar > /home/ubuntu/app.log 2>&1 &'
                 '''
             }
         }
